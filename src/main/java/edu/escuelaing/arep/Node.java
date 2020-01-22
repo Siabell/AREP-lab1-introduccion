@@ -1,10 +1,10 @@
 package edu.escuelaing.arep;
 
-public class Node<E> {
+public class Node<T> {
 	
-	private E element;
-	private Node<E> next; 
-	private Node<E> preceding; 
+	private T element;
+	private Node<T> next; 
+	private Node<T> preceding; 
 	
 	/**
 	 * Constructor de nodos
@@ -12,33 +12,33 @@ public class Node<E> {
 	 * @param element: elemento del nodo
 	 * @param next: nodo siguiente
 	 */
-	public Node (Node<E> preceding, E element, Node<E> next ) {
+	public Node (Node<T> preceding, T element, Node<T> next ) {
 		this.element = element;
 		this.next = next;
 		this.preceding = preceding;
 	}
 
-	public Object getElement() {
+	public T getElement() {
 		return element;
 	}
 
-	public void setElement(E element) {
+	public void setElement(T element) {
 		this.element = element;
 	}
 
-	public Node<E> getNext() {
+	public Node<T> getNext() {
 		return next;
 	}
 
-	public void setNext(Node<E> next) {
+	public void setNext(Node<T> next) {
 		this.next = next;
 	}
 
-	public Node<E> getPreceding() {
+	public Node<T> getPreceding() {
 		return preceding;
 	}
 
-	public void setPreceding(Node<E> preceding) {
+	public void setPreceding(Node<T> preceding) {
 		this.preceding = preceding;
 	}
 

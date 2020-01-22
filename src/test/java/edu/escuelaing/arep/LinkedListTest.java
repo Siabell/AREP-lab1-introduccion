@@ -1,5 +1,7 @@
 package edu.escuelaing.arep;
 
+import java.util.Collection;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -24,6 +26,11 @@ public class LinkedListTest extends TestCase {
         return new TestSuite( LinkedListTest.class );
     }
     
+
+	//System.out.println(getResult + "lenght");
+	//System.out.print(getResult);
+    
+    
     public void testShouldAddAElementToLinkedList()
     {
     	LinkedListP<Integer> linkedList = new LinkedListP<Integer>();
@@ -43,8 +50,8 @@ public class LinkedListTest extends TestCase {
     	linkedList.add(4,5);
     	assertTrue(linkedList.get(0)==1);
     	assertTrue(linkedList.get(3)==4);
-    	System.out.print(linkedList.get(5));
     	assertTrue(linkedList.get(5)==6);
+    	assertTrue(linkedList.get(4)==5);
     }
     
     
@@ -54,10 +61,28 @@ public class LinkedListTest extends TestCase {
     	assertTrue(linkedList.add(2));
     	assertTrue(linkedList.add(3));
     	assertTrue(linkedList.add(4));
-    	Integer getResult = linkedList.get(3);
+    	Integer getResult = linkedList.get(2);
     	assertTrue(getResult == 4);
-    	//System.out.println(getResult + "lenght");
-    	//System.out.print(getResult);
+    	System.out.print(linkedList.size());
+    }
+    
+    
+    public void testShouldRemoveElementByIndex(){}
+    {
+    	LinkedListP<Integer> linkedList = new LinkedListP<Integer>();
+    	assertTrue(linkedList.add(1));
+    	assertTrue(linkedList.add(2));
+    	assertTrue(linkedList.add(3));
+    	assertTrue(linkedList.add(4));
+    	assertTrue(linkedList.remove(0)==1);
+    	assertTrue(linkedList.get(0) == 2);
+    }
+    
+    public void testShouldCreateALinkedListFromArray() {
+    	Double[] newLinkedList = {23.34, 3453.2,45.3,34.4};
+    	LinkedListP<Double> linkedList = new LinkedListP<Double>(newLinkedList);
+    	assertTrue(linkedList.get(0)==23.34);
+    	assertTrue(linkedList.get(3)==34.4);
     }
     
     
