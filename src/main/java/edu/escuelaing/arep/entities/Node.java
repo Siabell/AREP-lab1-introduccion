@@ -4,7 +4,7 @@ package edu.escuelaing.arep.entities;
  * Node Class 
  * @author Valentina Siabatto Rojas
  *
- * @param T - the type of elements held in this linked List 
+ * @param T the type of elements held in this linked List 
  */
 public class Node<T> {
 	
@@ -14,9 +14,9 @@ public class Node<T> {
 	
 	/**
 	 * Constructs a node 
-	 * @param preceding - preceding node
-	 * @param element - element of the node
-	 * @param next - next node
+	 * @param preceding preceding node
+	 * @param element element of the node
+	 * @param next next node
 	 */
 	public Node (Node<T> preceding, T element, Node<T> next ) {
 		this.element = element;
@@ -34,7 +34,7 @@ public class Node<T> {
 	
 	/**
 	 * Replaces the element of the node
-	 * @param element - element to be stored.
+	 * @param element element to be stored.
 	 */
 	public void setElement(T element) {
 		this.element = element;
@@ -50,7 +50,7 @@ public class Node<T> {
 	
 	/**
 	 * Replaces the next node
-	 * @param next - node to be stored
+	 * @param next node to be stored
 	 */
 	public void setNext(Node<T> next) {
 		this.next = next;
@@ -66,7 +66,7 @@ public class Node<T> {
 	
 	/**
 	 * Replaces the preceding node
-	 * @param preceding - node to be stored
+	 * @param preceding node to be stored
 	 */
 	public void setPreceding(Node<T> preceding) {
 		this.preceding = preceding;

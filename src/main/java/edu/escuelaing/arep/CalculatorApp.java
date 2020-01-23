@@ -31,7 +31,7 @@ public class CalculatorApp {
 	 
 	 /**
 	  * Creates a linkedList of Doubles from a file of double numbers
-	  * @param testPath - the path of the file
+	  * @param testPath the path of the file
 	  * @return A linked List of the double numbers contained in the file
 	  * @throws Exception
 	  */
@@ -53,7 +53,7 @@ public class CalculatorApp {
 	
 	/**
 	 * Calculate the mean of a list of float numbers
-	 * @param linkedList - list of the float numbers
+	 * @param linkedList list of the float numbers
 	 * @return mean of the data
 	 */
 	public static Double mean (LinkedListP<Double> linkedList) {
@@ -71,7 +71,7 @@ public class CalculatorApp {
 	
 	/**
 	 * Calculate the standard Deviation of a list of float numbers
-	 * @param linkedList - list of the float numbers
+	 * @param linkedList list of the float numbers
 	 * @return standard deviation of the list of data
 	 */
 	public static Double standarDeviation (LinkedListP<Double> linkedList) {

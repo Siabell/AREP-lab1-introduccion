@@ -30,7 +30,7 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
     
     /**
      * Construct an Linkedlist from an array of elements
-     * @param c - array of elements to be appended to the linked List
+     * @param c  array of elements to be appended to the linked List
      */
     public LinkedListP (T[] c) {
     	this.head = null;
@@ -58,7 +58,7 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
 
     /**
      * Appends the specified element to the end of this list.
-     * @param objToAdd - element to be appended
+     * @param objToAdd element to be appended
      * @return true
      */
     public boolean add (T objToAdd) {
@@ -80,8 +80,8 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
     
     /**
      * Inserts the specified element at the specified position in this list. Shifts the element currently at that position (if any) and any subsequent elements to the right.
-     * @param index - index at which the specified element is to be inserted
-     * @param element - element to be appended
+     * @param index index at which the specified element is to be inserted
+     * @param element element to be appended
      * @throws IndexOutOfBoundsException - if the index is out of range
      * 
      */
@@ -115,7 +115,7 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
 	
 	/**
 	 * Returns the element at the specified position in this Linked list.
-	 * @param index - index of the element to return
+	 * @param index index of the element to return
 	 * @return the element at the specified position in this Linked list
 	 * @throws IndexOutOfBoundsException - if the index is out of range
 	 */
@@ -136,7 +136,7 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
 	
 	/**
 	 * Returns the node of the element at the specified position in this Linked list.
-	 * @param index - index at which the specified element is to be inserted
+	 * @param index index at which the specified element is to be inserted
 	 * @return the node of the element at the specified position in this Linked list.
 	 */
 	private Node<T> getNode (int index) {
@@ -186,7 +186,7 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
 	/**
 	 * Removes the element at the specified position in this Linked list.
 	 * Shifts any subsequent elements to the left
-	 * @param index - index at which the specified element is to be deleted.
+	 * @param index index at which the specified element is to be deleted.
 	 * @throws IndexOutOfBoundsException - if the index is out of range
 	 * @return the element that was removed from the Linkedlist.
 	 */
