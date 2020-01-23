@@ -32,6 +32,7 @@ Test the compiled and packaged JAR with the following command:
 ```
 java -cp target/Proyecto-Intro-1.0-SNAPSHOT.jar edu.escuelaing.arep.CalculatorApp
 ```
+![Drag Racing](resources/images/TestResult.PNG)
 
 ### Prerequisites
 
