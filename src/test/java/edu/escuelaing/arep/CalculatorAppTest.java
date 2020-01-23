@@ -1,5 +1,6 @@
 package edu.escuelaing.arep;
 
+import edu.escuelaing.arep.entities.LinkedListP;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -39,6 +40,7 @@ public class CalculatorAppTest extends TestCase {
         linkedList1.add(1503.0);
         
         double resultMean1 = CalculatorApp.mean(linkedList1);
+        //System.out.println(resultMean1);
         assertTrue(resultMean1 == 550.6);
         
         LinkedListP<Double> linkedList2 = new LinkedListP<Double>();
@@ -72,6 +74,7 @@ public class CalculatorAppTest extends TestCase {
         linkedList1.add(1503.0);
         
         double resultMean1 = CalculatorApp.standarDeviation(linkedList1);
+        //System.out.println(resultMean1+"va");
         assertTrue(resultMean1 == 572.03);
         
         LinkedListP<Double> linkedList2 = new LinkedListP<Double>();

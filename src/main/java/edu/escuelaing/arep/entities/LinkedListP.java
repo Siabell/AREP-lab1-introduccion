@@ -1,11 +1,11 @@
-package edu.escuelaing.arep;
+package edu.escuelaing.arep.entities;
 
 import java.io.Serializable;
 import java.util.*;
 
 import edu.escuelaing.arep.exception.MathLinkedListException;
 
-public class LinkedListP<T>  implements List<T>, Serializable {
+public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Collection<T> {
 	
     private Node<T> head; 
     private Node<T> tail; 
@@ -153,6 +153,7 @@ public class LinkedListP<T>  implements List<T>, Serializable {
 	public void clear() {
 		this.head = null;
 		this.tail = null;
+		this.listLenght = 0;
 		System.gc();
 	}
 	
@@ -243,10 +244,28 @@ public class LinkedListP<T>  implements List<T>, Serializable {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	
+	/**
+	 * Returns an iterator over the elements in this list 
+	 * @return an iterator over the elements in this list
+	 */
 	public Iterator<T> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		Iterator<T> res = new Iterator<T>() {
+            private Node<T> now = head;
+
+            public boolean hasNext() {
+                if (now != null)
+                    return true;
+                return false;
+            }
+
+            public T next() {
+                T data = now.getElement();
+                now = now.getNext();
+                return data;
+            }
+        };
+        return res;
 	}
 
 	public int lastIndexOf(Object o) {
@@ -289,6 +308,9 @@ public class LinkedListP<T>  implements List<T>, Serializable {
 		return null;
 	}
 
+	
+
+	
 
 
 

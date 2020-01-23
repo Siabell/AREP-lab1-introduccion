@@ -2,6 +2,7 @@ package edu.escuelaing.arep;
 
 import java.util.Collection;
 
+import edu.escuelaing.arep.entities.LinkedListP;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -35,6 +36,7 @@ public class LinkedListTest extends TestCase {
     	LinkedListP<Integer> linkedList = new LinkedListP<Integer>();
     	int size = linkedList.size();
     	assertTrue(size==0);
+    	
     }
     
     public void testShouldCreateALinkedListFromArray() {
@@ -97,6 +99,7 @@ public class LinkedListTest extends TestCase {
 	   assertTrue(linkedList.add(3));
 	   assertTrue(linkedList.add(4));
 	   linkedList.clear();
+	   //System.out.print(linkedList.size());
 	   assertTrue(linkedList.size()==0);
 	   	
    }
