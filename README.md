@@ -24,7 +24,7 @@ This command will generate the documentation in the folder
  /target/site/apidocs/
  ```
 
-To see the documentation of this project, and more information about the functionalities, access the following link: [documentation](https://github.com/Siabell/AREP-lab1-introduccion/blob/master/target/site/apidocs/index.html) .
+To see the documentation of this project, access to the following link: [documentation](https://github.com/Siabell/AREP-lab1-introduccion/blob/master/target/site/apidocs/index.html) .
 
 
 Test the compiled and packaged JAR with the following command:
