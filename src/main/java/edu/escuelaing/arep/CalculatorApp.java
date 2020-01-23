@@ -5,8 +5,13 @@ import java.io.File;
 import java.io.FileReader;
 import edu.escuelaing.arep.entities.LinkedListP;
 
+/**
+ * Calculator class 
+ * Contains the operations to calculate the mean and standard deviation of a list of numbers
+ * @author Valentina Siabatto Rojas
+ *
+ */
 public class CalculatorApp {
-	
 	
 	
 	 public static void main(String[] args)throws Exception { 
@@ -47,8 +52,8 @@ public class CalculatorApp {
 	 }
 	
 	/**
-	 * Calculate the mean of a list of data
-	 * @param linkedList - list of the data
+	 * Calculate the mean of a list of float numbers
+	 * @param linkedList - list of the float numbers
 	 * @return mean of the data
 	 */
 	public static Double mean (LinkedListP<Double> linkedList) {
@@ -65,9 +70,9 @@ public class CalculatorApp {
 	}
 	
 	/**
-	 * Calculate the standard Deviation of a list of data
-	 * @param linkedList - list of the data
-	 * @return standard deviation of the data
+	 * Calculate the standard Deviation of a list of float numbers
+	 * @param linkedList - list of the float numbers
+	 * @return standard deviation of the list of data
 	 */
 	public static Double standarDeviation (LinkedListP<Double> linkedList) {
 		Double result = 0.0;

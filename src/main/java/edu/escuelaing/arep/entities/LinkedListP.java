@@ -5,6 +5,14 @@ import java.util.*;
 
 import edu.escuelaing.arep.exception.MathLinkedListException;
 
+/**
+ * LinkedList Class 
+ * 
+ * 
+ * @author Valentina Siabatto Rojas
+ *
+ * @param T - the type of elements held in this linked List 
+ */
 public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Collection<T> {
 	
     private Node<T> head; 
@@ -21,8 +29,8 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
     }
     
     /**
-     * Construct an Linkedlist from an array
-     * @param c - array of elements to be inserted to the linked List
+     * Construct an Linkedlist from an array of elements
+     * @param c - array of elements to be appended to the linked List
      */
     public LinkedListP (T[] c) {
     	this.head = null;
@@ -50,7 +58,8 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
 
     /**
      * Appends the specified element to the end of this list.
-     * @param objToAdd - element to be inserted
+     * @param objToAdd - element to be appended
+     * @return true
      */
     public boolean add (T objToAdd) {
     	Node<T> newNode;
@@ -72,12 +81,17 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
     /**
      * Inserts the specified element at the specified position in this list. Shifts the element currently at that position (if any) and any subsequent elements to the right.
      * @param index - index at which the specified element is to be inserted
-     * @param element - element to be inserted
+     * @param element - element to be appended
+     * @throws IndexOutOfBoundsException - if the index is out of range
      * 
      */
-	public void add(int index, T element) {
+	public void add(int index, T element)  {
 		if (index < 0 || index >= listLenght) {
-			//indice fuera del rango
+			try {
+				throw new MathLinkedListException(MathLinkedListException.IndexOutOfBoundsException);
+			} catch (Exception e) {
+			      System.out.println(e);
+			}
 		} else  {
 			Node<T> newNode;
 			if (index == 0) {
@@ -103,11 +117,15 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
 	 * Returns the element at the specified position in this Linked list.
 	 * @param index - index of the element to return
 	 * @return the element at the specified position in this Linked list
+	 * @throws IndexOutOfBoundsException - if the index is out of range
 	 */
 	public T get(int index) {
-		
 		if (index < 0 || index >= listLenght) {
-			
+			try {
+				throw new MathLinkedListException(MathLinkedListException.IndexOutOfBoundsException);
+			} catch (Exception e) {
+			      System.out.println(e);
+			}
 		} else {
 			Node<T> nodeElement = this.getNode(index);
 			T element = (T) nodeElement.getElement();
@@ -119,7 +137,7 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
 	/**
 	 * Returns the node of the element at the specified position in this Linked list.
 	 * @param index - index at which the specified element is to be inserted
-	 * @return
+	 * @return the node of the element at the specified position in this Linked list.
 	 */
 	private Node<T> getNode (int index) {
 		int mid = listLenght/2;
@@ -159,6 +177,7 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
 	
 	/**
 	 * Returns the number of elements in this Linked list.
+	 * @return  the number of elements in this Linked list.
 	 */
 	public int size() {
 		return this.listLenght;
@@ -166,14 +185,18 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
 	
 	/**
 	 * Removes the element at the specified position in this Linked list.
+	 * Shifts any subsequent elements to the left
 	 * @param index - index at which the specified element is to be deleted.
-	 * @return the element previously at the specified position
+	 * @throws IndexOutOfBoundsException - if the index is out of range
+	 * @return the element that was removed from the Linkedlist.
 	 */
 	public T remove(int index) {
 		if (index < 0 || index >= listLenght) {
-			//throw new Exception("Index is out of range");
-			//throw new MathLinkedListException(MathLinkedListException.IndexOutOfBoundsException);
-			
+			try {
+				throw new MathLinkedListException(MathLinkedListException.IndexOutOfBoundsException);
+			} catch (Exception e) {
+			      System.out.println(e);
+			}
 		} else  {
 			Node<T> nodeElement;
 			if (index == 0) {
@@ -206,12 +229,39 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
 		return false;
 	}
 	
-	public <T> T[] toArray(T[] a) {
-		ArrayList<T> likedArrayList = new ArrayList<T>();
-		for (int i = 0; i < listLenght; i++) {
-			
-		}
-		return null;
+	/**
+	 * Returns an iterator over the elements in this list 
+	 * @return an iterator over the elements in this list
+	 */
+	public Iterator<T> iterator() {
+		Iterator<T> res = new Iterator<T>() {
+            private Node<T> now = head;
+
+            public boolean hasNext() {
+                if (now != null)
+                    return true;
+                return false;
+            }
+
+            public T next() {
+                T data = now.getElement();
+                now = now.getNext();
+                return data;
+            }
+        };
+        return res;
+	}
+	
+	/**
+	 * Returns an array containing all of the elements in this list in proper sequence
+	 * @return an array containing all of the elements in this list in proper sequence
+	 */
+	public Object[] toArray() {
+		Object[] resultArray = new Object[listLenght];
+        for (int i = 0; i < this.listLenght; i++) {
+        	resultArray[i] = this.get(i);
+        }
+        return resultArray;
 	}
 	
 	public boolean remove(Object o) {
@@ -245,29 +295,6 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
 		return 0;
 	}
 	
-	/**
-	 * Returns an iterator over the elements in this list 
-	 * @return an iterator over the elements in this list
-	 */
-	public Iterator<T> iterator() {
-		Iterator<T> res = new Iterator<T>() {
-            private Node<T> now = head;
-
-            public boolean hasNext() {
-                if (now != null)
-                    return true;
-                return false;
-            }
-
-            public T next() {
-                T data = now.getElement();
-                now = now.getNext();
-                return data;
-            }
-        };
-        return res;
-	}
-
 	public int lastIndexOf(Object o) {
 		// TODO Auto-generated method stub
 		return 0;
@@ -302,9 +329,9 @@ public class LinkedListP<T>  implements List<T>, Serializable, Iterable<T>, Coll
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	public Object[] toArray() {
-		
+	
+	public <T> T[] toArray(T[] arg0) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
