@@ -30,6 +30,19 @@ public class LinkedListTest extends TestCase {
 	//System.out.println(getResult + "lenght");
 	//System.out.print(getResult);
     
+    public void testShouldCreateAnEmptyLinkedList()
+    {
+    	LinkedListP<Integer> linkedList = new LinkedListP<Integer>();
+    	int size = linkedList.size();
+    	assertTrue(size==0);
+    }
+    
+    public void testShouldCreateALinkedListFromArray() {
+    	Double[] newLinkedList = {23.34, 3453.2,45.3,34.4};
+    	LinkedListP<Double> linkedList = new LinkedListP<Double>(newLinkedList);
+    	assertTrue(linkedList.get(0)==23.34);
+    	assertTrue(linkedList.get(3)==34.4);
+    }
     
     public void testShouldAddAElementToLinkedList()
     {
@@ -63,7 +76,6 @@ public class LinkedListTest extends TestCase {
     	assertTrue(linkedList.add(4));
     	Integer getResult = linkedList.get(2);
     	assertTrue(getResult == 4);
-    	System.out.print(linkedList.size());
     }
     
     
@@ -78,13 +90,17 @@ public class LinkedListTest extends TestCase {
     	assertTrue(linkedList.get(0) == 2);
     }
     
-    public void testShouldCreateALinkedListFromArray() {
-    	Double[] newLinkedList = {23.34, 3453.2,45.3,34.4};
-    	LinkedListP<Double> linkedList = new LinkedListP<Double>(newLinkedList);
-    	assertTrue(linkedList.get(0)==23.34);
-    	assertTrue(linkedList.get(3)==34.4);
-    }
+   public void testShouldEmptyALinkedList(){
+	   LinkedListP<Integer> linkedList = new LinkedListP<Integer>();
+	   assertTrue(linkedList.add(1));
+	   assertTrue(linkedList.add(2));
+	   assertTrue(linkedList.add(3));
+	   assertTrue(linkedList.add(4));
+	   linkedList.clear();
+	   assertTrue(linkedList.size()==0);
+	   	
+   }
     
-    
+}   
 
-}
+

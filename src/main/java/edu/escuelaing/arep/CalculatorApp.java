@@ -9,12 +9,15 @@ public class CalculatorApp {
 	 * @param linkedList - list of the data
 	 * @return mean of the data
 	 */
-	public Double mean (LinkedListP<Double> linkedList) {
+	public static Double mean (LinkedListP<Double> linkedList) {
 		Double result = 0.0;
 		for (int i = 0; i < linkedList.size(); i++) {
 			result+=linkedList.get(i);
 		}
 		result = result/linkedList.size();
+		result = result * Math.pow(10, 2);
+		result = (double) Math.round(result);
+        result = result/Math.pow(10, 2);
 		return result;
 	}
 	
@@ -23,9 +26,17 @@ public class CalculatorApp {
 	 * @param linkedList - list of the data
 	 * @return standard deviation of the data
 	 */
-	public Double standarDeviation (LinkedListP<Double> linkedList) {
+	public static Double standarDeviation (LinkedListP<Double> linkedList) {
 		Double result = 0.0;
-		Double mean = this.mean(linkedList);
+		Double mean = mean(linkedList);
+		Double sampleVariance = 0.0;
+		for (int i = 0; i < linkedList.size(); i++) {
+			sampleVariance+=Math.pow((linkedList.get(i)-mean), 2);
+		}
+		result = Math.sqrt(sampleVariance / (linkedList.size() - 1));
+		result = result * Math.pow(10, 2);
+		result = (double) Math.round(result);
+        result = result/Math.pow(10, 2);
 		return result;
 	}
 

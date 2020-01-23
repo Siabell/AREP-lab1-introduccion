@@ -105,8 +105,9 @@ public class LinkedListP<T>  implements List<T>, Serializable {
 	 * @return the element at the specified position in this Linked list
 	 */
 	public T get(int index) {
+		
 		if (index < 0 || index >= listLenght) {
-			//indice fuera del rango
+			
 		} else {
 			Node<T> nodeElement = this.getNode(index);
 			T element = (T) nodeElement.getElement();
